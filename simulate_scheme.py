@@ -10,7 +10,6 @@ import asyncio
 import subprocess
 from joblib import Parallel, delayed
 from pathlib import Path
-from nipype.utils.filemanip import copyfile, fname_presuffix
 
 
 def run_command(command):
@@ -545,20 +544,10 @@ def simulate(bvecs_file, bvals_file, output_dir, run_method, sim_templates_dir,
     print("Copying template files...")
     for f_ in req_fils:
         if 'Fibers.fib' in f_:
-            copyfile(
-            f_,
-            fiber_tmp,
-            copy=True,
-            use_hardlink=False)
+            shutil.copyfile(f_, fiber_tmp)
         else:
-            f_tmp_path = fname_presuffix(
-                f_, suffix="", newpath=dirpath
-            )
-            copyfile(
-            f_,
-            f_tmp_path,
-            copy=True,
-            use_hardlink=False)
+            f_tmp_path = Path(dirpath) / f_
+            shutil.copyfile(f_, f_tmp_path)
 
     #print(glob.glob(f"{dirpath}/*"))
     #return
