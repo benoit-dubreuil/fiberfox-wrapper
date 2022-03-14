@@ -12,6 +12,7 @@ from joblib import Parallel, delayed
 from pathlib import Path
 
 
+# TODO: Return correctly `output` and `err` as the way it is currently is that they are both leaked into the caller's scope.
 def run_command(command):
     process = subprocess.Popen(command, stdout=subprocess.PIPE)
     while True:
