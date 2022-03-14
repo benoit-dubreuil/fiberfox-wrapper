@@ -10,8 +10,6 @@ import asyncio
 import subprocess
 from joblib import Parallel, delayed
 from pathlib import Path
-# Reference for the useless functions that should be replaced by standard functions : https://github.com/nipy/nipype/blob/master/nipype/utils/filemanip.py
-from nipype.utils.filemanip import copyfile, fname_presuffix
 
 
 def run_command(command):
