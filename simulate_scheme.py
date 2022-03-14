@@ -551,11 +551,7 @@ def simulate(bvecs_file, bvals_file, output_dir, run_method, sim_templates_dir,
             f_tmp_path = fname_presuffix(
                 f_, suffix="", newpath=dirpath
             )
-            copyfile(
-            f_,
-            f_tmp_path,
-            copy=True,
-            use_hardlink=False)
+            shutil.copyfile(f_, f_tmp_path)
 
     #print(glob.glob(f"{dirpath}/*"))
     #return
