@@ -546,11 +546,7 @@ def simulate(bvecs_file, bvals_file, output_dir, run_method, sim_templates_dir,
     print("Copying template files...")
     for f_ in req_fils:
         if 'Fibers.fib' in f_:
-            copyfile(
-            f_,
-            fiber_tmp,
-            copy=True,
-            use_hardlink=False)
+            shutil.copyfile(f_, fiber_tmp)
         else:
             f_tmp_path = fname_presuffix(
                 f_, suffix="", newpath=dirpath
