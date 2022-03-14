@@ -548,9 +548,7 @@ def simulate(bvecs_file, bvals_file, output_dir, run_method, sim_templates_dir,
         if 'Fibers.fib' in f_:
             shutil.copyfile(f_, fiber_tmp)
         else:
-            f_tmp_path = fname_presuffix(
-                f_, suffix="", newpath=dirpath
-            )
+            f_tmp_path = Path(dirpath) / f_
             shutil.copyfile(f_, f_tmp_path)
 
     #print(glob.glob(f"{dirpath}/*"))
