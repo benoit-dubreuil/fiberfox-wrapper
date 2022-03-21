@@ -1,3 +1,8 @@
+# ABANDONED!
+
+We switched to other simpler tools to generate white fibre bundles.
+
+
 # Fiberfox in a container
 
 This code uses a Docker or Singularity image to simulate diffusion weighted MRI.
